@@ -139,8 +139,20 @@ else
 fi
 chmod 755 "$INSTALL_DIR/$APP"
 
+# The opencode alias is a convenience for a machine that has no opencode of its own. Our folder goes FIRST on PATH, so
+# an alias here would hide a real opencode the person installed themselves. Never do that: look first.
+other_opencode=""
+old_ifs=$IFS; IFS=:
+for dir in $PATH; do
+    [ -n "$dir" ] || continue
+    [ "$dir" = "$INSTALL_DIR" ] && continue
+    if [ -x "$dir/$ALIAS" ] || [ -x "$dir/$ALIAS.exe" ]; then other_opencode="$dir/$ALIAS"; break; fi
+done
+IFS=$old_ifs
 rm -f "$INSTALL_DIR/$ALIAS" "$INSTALL_DIR/$ALIAS.exe"
-if [[ "$(uname -s)" == MINGW* || "$(uname -s)" == MSYS* || "$(uname -s)" == CYGWIN* ]]; then
+if [ -n "$other_opencode" ]; then
+    echo "Kept your own opencode ($other_opencode). Reflex Ops is the reflex command."
+elif [[ "$(uname -s)" == MINGW* || "$(uname -s)" == MSYS* || "$(uname -s)" == CYGWIN* ]]; then
     cp "$INSTALL_DIR/$APP" "$INSTALL_DIR/$ALIAS.exe"
 else
     printf '#!/bin/sh\nexec "$(dirname "$0")/%s" "$@"\n' "$APP" > "$INSTALL_DIR/$ALIAS"
