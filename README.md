@@ -5,8 +5,18 @@ work kept private by default.
 
 ## Install
 
+REFLEX OPS runs on macOS, Linux and Windows.
+
+macOS or Linux, in Terminal:
+
 ```sh
 curl -fsSL https://reflex.riif.com/install | bash
+```
+
+Windows, in PowerShell:
+
+```powershell
+irm https://reflex.riif.com/install.ps1 | iex
 ```
 
 Then sign in:
@@ -15,7 +25,13 @@ Then sign in:
 reflex login
 ```
 
-Builds for macOS, Linux and Windows are under [Releases](../../releases). Installed copies update themselves.
+Working with Claude Code? Run this once in your project folder, then reopen Claude Code there:
+
+```sh
+reflex kit
+```
+
+Steps for Windows and for Claude Code are at [reflex.riif.com](https://reflex.riif.com). Installed copies update themselves.
 
 ## About this repository
 
