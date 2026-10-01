@@ -97,10 +97,13 @@ if ($onWindows) {
 Write-Host ''
 Write-Host "REFLEX OPS $version installed in $dir"
 Write-Host ''
-Write-Host 'Next:'
+Write-Host 'This window is ready. Next:'
 Write-Host '  reflex login     sign in with riif (once)'
 Write-Host '  cd <project>     go to your project folder'
 Write-Host '  reflex kit       if you work with Claude Code'
 Write-Host '  reflex           open Reflex Ops'
 Write-Host ''
-Write-Host 'If another program (Claude Code, an editor) should find reflex, close and reopen it first.'
+Write-Host 'Windows that were already open cannot see reflex yet. That includes new tabs in Windows Terminal,'
+Write-Host 'the terminal inside an editor, and Claude Code. Close the whole app and open it again.'
+Write-Host 'If a window still says "reflex is not recognized", run this line in it and try again:'
+Write-Host ('  $env:Path += ";' + $dir + '"')
