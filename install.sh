@@ -48,7 +48,10 @@ else
     case "$raw_os" in
       Darwin*) os="darwin" ;;
       Linux*) os="linux" ;;
-      MINGW*|MSYS*|CYGWIN*) os="windows" ;;
+      MINGW*|MSYS*|CYGWIN*)
+        echo "On Windows, install from PowerShell instead:" >&2
+        echo "  irm https://reflex.riif.com/install.ps1 | iex" >&2
+        exit 1 ;;
       *) echo "Unsupported OS: $raw_os" >&2; exit 1 ;;
     esac
 
