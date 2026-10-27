@@ -37,7 +37,6 @@ Steps for Windows and for Claude Code are at [reflex.riif.com](https://reflex.ri
 
 This repository publishes release builds of REFLEX OPS. It does not contain the source code.
 
-REFLEX OPS includes software from [opencode](https://github.com/anomalyco/opencode), used under the MIT License; its
-notice is in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Open-source notices: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 More: [reflex.riif.com](https://reflex.riif.com) and [paragonreflex.com](https://paragonreflex.com).
